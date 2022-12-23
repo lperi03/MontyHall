@@ -66,7 +66,7 @@ def engine(numTrials, switch):
     numSuccesses = 0
     probSuccesses = []
     for i in range(1, numTrials + 1):
-        result = play_game(True, doors)
+        result = play_game(switch, doors)
         #play_game(False, doors)
         if result:
             numSuccesses += 1
@@ -80,7 +80,10 @@ def engine(numTrials, switch):
     successPercentage = probSuccesses
     print("the number of trials is:" + " " + str(numTrials))
     print("the number of successes is:" + " " + str(numSuccesses))
-    print("the win percentage of the player who always switches after" + " " + str(numTrials) + " " "trials is:" + " " + str(probSuccesses[-1]))
+    if switch:
+        print("the win percentage of the player who always switches after" + " " + str(numTrials) + " " "trials is:" + " " + str(probSuccesses[-1]))
+    else:
+        print("the win percentage of the player who never switches after" + " " + str(numTrials) + " " "trials is:" + " " + str(probSuccesses[-1]))
     return probSuccesses
 
 
